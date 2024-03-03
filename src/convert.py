@@ -18,7 +18,8 @@ NUMBER_CONMAP: ConversionMapType = [
 
 CLEAN_CONMAP: ConversionMapType = [
     (compile(r"^.*[０-９]+版[０-９～－]*"), ""),
-    (compile(r"◆\n$"), ""),
+    (compile(r"[ \n]+$"), ""),
+    (compile(r"◆$"), ""),
     (compile(r"【.+／.+】"), ""),
 ]
 
