@@ -1,4 +1,4 @@
 def main():
     import black
 
-    black.main(["."])
+    return black.main(["."])

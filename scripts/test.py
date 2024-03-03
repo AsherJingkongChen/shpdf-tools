@@ -1,4 +1,4 @@
 def main():
     import pytest
 
-    pytest.main(["--cov=src", "-s", "src"])
+    return pytest.main(["--cov=src", "-s", "src"])
