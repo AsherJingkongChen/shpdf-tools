@@ -17,12 +17,14 @@ NUMBER_CONMAP: ConversionMapType = [
 ]
 
 CLEAN_CONMAP: ConversionMapType = [
-    (compile(r"^[傳告廣版重０-９～]+"), ""),
+    (compile(r"^.*[０-９]+版[０-９～－]*"), ""),
     (compile(r"◆\n$"), ""),
-    (compile(r"【記者.+／報導】"), ""),
+    (compile(r"【.+／.+】"), ""),
 ]
 
 SYMBOL_CONMAP: ConversionMapType = [
+    (compile(r"—"), "－"),
+    (compile(r"/"), "／"),
     (compile(r"︵"), "（"),
     (compile(r"︶"), "）"),
     (compile(r"︿"), "〈"),
@@ -58,8 +60,8 @@ def convert_zht_text(text: str) -> str:
     The line terminator is LF ("\n").
     """
     text = _convert_text(text, NUMBER_CONMAP)
-    text = _convert_text(text, SYMBOL_CONMAP)
     text = _convert_text(text, SPACE_CONMAP)
+    text = _convert_text(text, SYMBOL_CONMAP)
     return text
 
 
