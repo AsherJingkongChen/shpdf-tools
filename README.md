@@ -1,5 +1,7 @@
 # Tools for Slash-Hash Packed Data Format
 
+[![PyPI](https://img.shields.io/pypi/pyversions/shpdf-tools?style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org/project/shpdf-tools/)
+
 ## User guide
 
 ### 1. Obtain some data
