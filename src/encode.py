@@ -1,7 +1,6 @@
-from typing import Union
+from __future__ import annotations
 
-
-def encode_json(decoded: Union[list[tuple[str, str]], dict[str, str]]) -> bytes:
+def encode_json(decoded: list[tuple[str, str]] | dict[str, str]) -> bytes:
     """
     Encodes the decoded packed data into JSON format
     """
