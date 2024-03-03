@@ -1,0 +1,36 @@
+[tool.poetry]
+authors = ["AsherJingkongChen"]
+description = "Tools for Slash-Hash Packed Data Format"
+exclude = ["src/**/*__test.py"]
+homepage = "https://github.com/AsherJingkongChen/shpdf-tools/blob/main/README.md"
+keywords = ["data", "decode", "encode", "format", "language", "parse"]
+license = "MIT"
+name = "shpdf-tools"
+packages = [
+  {include = "**/*.py", from = "src", to = "shpdf_tools"},
+]
+readme = "README.md"
+repository = "https://github.com/AsherJingkongChen/shpdf-tools.git"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+msgspec = "^0.18.6"
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.2.0"
+pytest = "^8.0.2"
+pytest-cov = "^4.1.0"
+
+[tool.poetry.scripts]
+format = "scripts.format:main"
+test = "scripts.test:main"
+
+[tool.coverage.run]
+omit = [
+  "src/**/*__test.py",
+]
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]

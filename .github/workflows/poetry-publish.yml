@@ -1,0 +1,54 @@
+name: poetry-publish
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  poetry-publish:
+    runs-on:
+      - ubuntu-latest
+    steps:
+      - id: actions-checkout
+        uses: actions/checkout@v4
+
+      - id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.8
+
+      - id: setup-poetry
+        uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: 1.8
+
+      - id: setup-poetry-venv
+        run: |
+          poetry config virtualenvs.create true --local
+          poetry config virtualenvs.in-project true --local
+
+      - id: cache-poetry-venv
+        uses: actions/cache@v4
+        with:
+          path: ./.venv
+          key: venv-${{ hashFiles('poetry.lock') }}
+
+      - id: install-dependencies
+        run: poetry install
+
+      - id: format-source-codes
+        run: poetry run format
+
+      - id: test-source-codes
+        run: poetry run test
+
+      - id: build-package
+        run: poetry build
+
+      - id: publish-package
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          poetry config pypi-token.pypi $PYPI_TOKEN
+          poetry publish --build
