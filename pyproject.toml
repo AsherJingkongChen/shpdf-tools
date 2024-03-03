@@ -11,7 +11,7 @@ packages = [
 ]
 readme = "README.md"
 repository = "https://github.com/AsherJingkongChen/shpdf-tools.git"
-version = "0.1.5"
+version = "0.1.6"
 
 [tool.poetry.dependencies]
 msgspec = "^0.18.6"
