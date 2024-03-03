@@ -10,7 +10,7 @@ class BinaryIOReader(ContextManager):
         self._input = input
         self._offset = offset
 
-    def read(self, size: int | None = -1) -> tuple[bytes, int]:
+    def read(self, size: int = -1) -> tuple[bytes, int]:
         """
         Reads `size` bytes and returns the chunk and the offset
         """
