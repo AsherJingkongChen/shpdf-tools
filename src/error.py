@@ -11,7 +11,7 @@ class MarkerError(ValueError):
         Indicates that none of `markers` matches `received`
         at the expected offset in the packed data
         """
-        markers = [f"{m.name}: {m.value}" for m in markers]
+        markers = [f"{m.name}: {m.value}" for m in markers[0]]
         if len(markers) <= 1:
             expected_name = "marker"
         else:
