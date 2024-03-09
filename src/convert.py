@@ -21,6 +21,7 @@ CLEAN_CONMAP: ConversionMapType = [
     (compile(r"[ \n]+$"), ""),
     (compile(r"◆$"), ""),
     (compile(r"【.+／.+】"), ""),
+    (compile(r" {2,}"), " "),
 ]
 
 SYMBOL_CONMAP: ConversionMapType = [
