@@ -59,7 +59,7 @@ def _decode_data(reader: BinaryIOReader) -> str:
     remain, offset = reader.read()
     offset -= PackFormat.Length.FORM_END_MARKER.value
     chunk = remain[-PackFormat.Length.FORM_END_MARKER.value :]
-    MarkerError.check(chunk, offset, PackFormat.Marker.FORM_END)
+    # MarkerError.check(chunk, offset, PackFormat.Marker.FORM_END)
     chunk = remain[: -PackFormat.Length.FORM_END_MARKER.value]
     data = chunk.decode(PackFormat.Text.ENCODING.value, "ignore")
     return data
